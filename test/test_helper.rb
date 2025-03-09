@@ -11,8 +11,9 @@ module ActiveSupport
     fixtures :all
 
     # Add more helper methods to be used by all tests here...
-    def sign_in_as(user) 
-      post login_path, params: { session: { email: user.email, password: "password"} }
+    def sign_in_as(user)
+      puts "sign_in_as: user: #{user.username} email: #{user.email} admin: #{user.admin} "
+      post login_path, params: { session: { email: user.email, password: "password" } }
     end
   end
 end
