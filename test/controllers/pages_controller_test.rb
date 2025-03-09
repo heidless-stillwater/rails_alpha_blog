@@ -5,3 +5,4 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
   #   assert true
   # end
 end
+ 
