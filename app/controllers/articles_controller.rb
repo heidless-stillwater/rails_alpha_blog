@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
-before_action :set_article, only: [:show, :edit, :update, :destroy]
-before_action :require_user, except: [:index, :show]
-before_action :require_same_user, only: [:edit, :update, :destroy]
+before_action :set_article, only: [ :show, :edit, :update, :destroy ]
+before_action :require_user, except: [ :index, :show ]
+before_action :require_same_user, only: [ :edit, :update, :destroy ]
 
   def index
     per_page = 5
@@ -34,8 +34,8 @@ before_action :require_same_user, only: [:edit, :update, :destroy]
     end
   end
 
-  def update 
-    # debugger 
+  def update
+    # debugger
     @article.update(article_params)
 
     if @article.save
@@ -46,7 +46,7 @@ before_action :require_same_user, only: [:edit, :update, :destroy]
     end
   end
 
-  def destroy 
+  def destroy
    @article.destroy
     redirect_to articles_path
   end
@@ -58,7 +58,7 @@ before_action :require_same_user, only: [:edit, :update, :destroy]
   end
 
   def article_params
-    params.require(:article).permit(:title, :description)
+    params.require(:article).permit(:title, :description, category_ids: [])
   end
 
   def require_same_user
