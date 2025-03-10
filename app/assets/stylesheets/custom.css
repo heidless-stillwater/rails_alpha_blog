@@ -152,7 +152,7 @@ body {
     .flickr_pagination a:hover, .flickr_pagination a:focus {
       border-color: #003366;
       background: #0063dc;
-      color: white; }
+      color: blue; }
   .flickr_pagination .page_info {
     color: #aaaaaa;
     padding-top: 0.8em; }
