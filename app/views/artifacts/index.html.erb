@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="container">
+
+  <% content_for :title, "Artifacts" %>
+
+  <h1 class="display-2 text-white text-center">Artifacts</h1>
+  <div id="artifacts">
+    <% @artifacts.each do |artifact| %>
+      <%= render artifacts %>
+      <p>
+        <%= link_to "Show this artifacts", artifacts %>
+      </p>
+    <% end %>
+    <div class="center">
+      <%= link_to "Artifacts", new_artifact_path, class: "btn btn-success mt-5" %>
+    </div>
+
+  </div>
+</div>
+
+
+

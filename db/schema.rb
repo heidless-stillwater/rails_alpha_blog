@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_03_09_112448) do
+ActiveRecord::Schema[7.2].define(version: 2025_04_01_083933) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,10 +27,28 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_09_112448) do
     t.integer "user_id"
   end
 
+  create_table "artifacts", force: :cascade do |t|
+    t.string "name"
+    t.string "picture"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_artifacts_on_user_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "name"
+    t.string "picture"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_images_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,4 +59,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_09_112448) do
     t.string "password_digest"
     t.boolean "admin", default: false
   end
+
+  add_foreign_key "artifacts", "users"
+  add_foreign_key "images", "users"
 end

@@ -65,6 +65,18 @@
           </li>
         <% end %>
 
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Artifacts
+          </a>
+          <div class="dropdown-menu">
+            <% if logged_in? %>
+              <%= link_to "New Artifact", new_artifact_path, class: "dropdown-item" %>
+            <% end %>
+            <%= link_to "View Artifacts", artifacts_path, class: "dropdown-item" %>
+          </div>
+        </li>        
+        
       </ul>
 
       <form class="d-flex" role="search">

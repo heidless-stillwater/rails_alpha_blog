@@ -1,0 +1,12 @@
+<% content_for :title, "New artifact" %>
+
+<div class="container"> 
+  <h1 class="display-2 text-white mb-3 text-center">New artifacts</h1>
+
+  <%= render "form", artifact: @artifact %>
+
+  <div class="mt-5">
+    <%= link_to "Back to artifacts", artifacts_path , class: "btn btn-primary" %>
+  </div>
+</div>
+
